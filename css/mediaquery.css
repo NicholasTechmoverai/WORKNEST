@@ -1,0 +1,492 @@
+/* Extra small devices (phones) */
+@media (max-width: 599px) {
+    body {
+        margin: 0 auto;
+        padding: 0;
+        width: 97vw;
+        font-size: 12px;
+        box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+        background:linear-gradient(to right ,rgba(18, 95, 18, 0.867),rgba(13, 42, 95, 0.826));
+        background-size: fill;
+        border: 1px solid transparent; /* Adds a small space to prevent sharp edges */
+        overflow-x: hidden;
+    }
+    
+    .navico{
+        max-width: 99vw;
+       padding-bottom: 7px 2px;
+       max-height:100PX ;
+    }
+    .topbtns label{
+        min-width: 91px;
+        margin-bottom: 5px;
+        flex-direction: row;
+    }
+    .topbtns{
+        background: gray;
+       text-align: center;
+       height:auto;
+       width: 120px;
+       position:fixed;
+       display: flex;
+      flex-direction: row;
+       z-index: 100000;
+       top: 2.5%;
+       opacity: 1;
+       margin-top: 29px;
+       align-items: center;
+       padding: 5px;
+       display: none;
+}
+#chat-container {
+    border: none;
+    outline: none;
+    margin-top: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+#chat-container:hover{
+    border: none;
+    outline: none;
+}
+#messages{
+    min-height:90%;
+    overflow-y:auto;
+}
+.inputhold{
+position: absolute;
+bottom: 1%;
+}
+.navico ion-icon[name="logo-wordpress"]{
+    z-index: 1000;
+}
+#menutoogled{
+    display: block;
+    position: fixed;
+    top: 2%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.281);
+    color: black;
+    padding: 2px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 15px 0px;
+    z-index: 100000;
+}
+    .jobfilter {
+        font-size: 0.1em;
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        margin-left: -50px;
+
+}
+.topcompaies table{
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+}
+#myjobinfo{
+    transform: scale(0.55);
+    -webkit-transform: scale(0.55);
+    -moz-transform: scale(0.55);
+    -ms-transform: scale(0.55);
+    -o-transform: scale(0.55);
+    width: 100%;
+}
+.postajob{
+   
+    margin-top: -220px;
+    margin-left: -160px;
+    font-size: 1.5em;
+}
+.categorytns{
+    background: #00000007;
+    display: flex;
+    overflow-x: auto;
+    padding: 3px;
+    margin-top: -13px;
+    margin-bottom: 10px;
+    width: 97vw;
+    position: sticky;
+    top: 2%;
+    z-index: 1000;
+}
+.info-input-form,
+.info-input-formnext,
+.info-input-formlast{
+    max-width: 90vw;
+}
+
+.userinandout {
+    max-width: 80vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+.info-input-formlast input[type='date']{
+    width: 92px;
+    margin-left:-7px;
+    padding: auto 0px;
+    font-size: 12px;
+}
+.dreamjob p,
+.dreamjob a{
+    font-size: 10px;
+}
+.mynewoistinput{
+    width: 100%  ;
+    height: auto;
+}
+.leavecomment{
+    position: sticky;
+    bottom: 1%;
+}
+.mycomment,
+#mycomment{
+  
+    height: 30px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width: 65%;
+    color: aliceblue;
+    border: 1px solid grey;
+    background: rgba(0, 0, 0, 0.437);
+    padding: 3px 33px;
+    height: auto;
+    min-height: 20px;
+}
+}
+/* Small devices (landscape phones)>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+@media (min-width: 600px) and (max-width: 767px) {
+    body {
+        margin: 0 auto;
+        padding: 0;
+        width: 97vw;
+        font-size: 12px;
+        box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+        background:linear-gradient(to right ,rgba(18, 95, 18, 0.867),rgba(13, 42, 95, 0.826));
+        background-size: fill;
+        border: 1px solid transparent; /* Adds a small space to prevent sharp edges */
+        overflow-x: hidden;
+    }
+    
+    .navico{
+        max-width: 99vw;
+       padding-bottom: 7px 2px;
+       max-height:100PX ;
+    }
+    .topbtns label{
+        min-width: 91px;
+        margin-bottom: 5px;
+        flex-direction: row;
+    }
+    .topbtns{
+        background: gray;
+       text-align: center;
+       height:auto;
+       width: 120px;
+       position:fixed;
+       display: flex;
+      flex-direction: row;
+       z-index: 100000;
+       top: 2.5%;
+       opacity: 1;
+       margin-top: 29px;
+       align-items: center;
+       padding: 5px;
+       display: none;
+}
+#chat-container {
+    border: none;
+    outline: none;
+    margin-top: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+   
+}
+#chat-container:hover{
+    border: none;
+    outline: none;
+}
+#messages{
+    min-height:90%;
+    overflow-y:auto;
+}
+.inputhold{
+position: absolute;
+bottom: 1%;
+}
+.navico ion-icon[name="logo-wordpress"]{
+    z-index: 1000;
+}
+#menutoogled{
+    display: block;
+    position: fixed;
+    top:2%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.281);
+    color: black;
+    padding: 2px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 15px 0px;
+    z-index: 100000;
+}
+    .jobfilter {
+        font-size: 0.1em;
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        margin-left: -50px;
+
+}
+.topcompaies table{
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+}
+#myjobinfo{
+    transform: scale(0.55);
+    -webkit-transform: scale(0.55);
+    -moz-transform: scale(0.55);
+    -ms-transform: scale(0.55);
+    -o-transform: scale(0.55);
+    width: 100%;
+}
+.postajob{
+   
+    margin-top: -220px;
+    margin-left: -160px;
+    font-size: 1.5em;
+}
+.categorytns{
+    background: #00000007;
+    display: flex;
+    overflow-x: auto;
+    padding: 3px;
+    margin-top: -13px;
+    margin-bottom: 10px;
+    width: 97vw;
+    position: sticky;
+    top: 2%;
+    z-index: 1000;
+}
+.info-input-form,
+.info-input-formnext,
+.info-input-formlast{
+    max-width: 90vw;
+}
+.userinandout {
+    max-width: 80vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+.info-input-formlast input[type='date']{
+    width: 92px;
+    margin-left:-7px;
+    padding: auto 0px;
+    font-size: 12px;
+}
+.dreamjob p,
+.dreamjob a{
+    font-size: 10px;
+}
+.mycomment,
+#mycomment{
+  
+    height: 30px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width:70%;
+    color: aliceblue;
+    border: 1px solid grey;
+    background: rgba(0, 0, 0, 0.437);
+    padding: 3px 33px;
+    height: auto;
+    min-height: 20px;
+}
+}
+/* Medium devices (tablets) >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        margin: 0 auto;
+        padding: 0;
+        width: 97vw;
+        font-size: 12px;
+        box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+        background:linear-gradient(to right ,rgba(18, 95, 18, 0.867),rgba(13, 42, 95, 0.826));
+        background-size: fill;
+        border: 1px solid transparent; /* Adds a small space to prevent sharp edges */
+        overflow-x: hidden;
+    }
+    
+    .navico{
+        max-width: 99vw;
+       padding-bottom: 7px 2px;
+       max-height:100PX ;
+    }
+    .topbtns label{
+        min-width: 91px;
+        margin-bottom: 5px;
+        flex-direction: row;
+    }
+    .topbtns{
+        background: gray;
+       text-align: center;
+       height:auto;
+       width: 120px;
+       position:fixed;
+       display: flex;
+      flex-direction: row;
+       z-index: 100000;
+       top: 2.5%;
+       opacity: 1;
+       margin-top: 29px;
+       align-items: center;
+       padding: 5px;
+       display: none;
+}
+#chat-container {
+    border: none;
+    outline: none;
+    margin-top: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+#chat-container:hover{
+    border: none;
+    outline: none;
+}
+#messages{
+    min-height:90%;
+    overflow-y:auto;
+}
+.inputhold{
+position: absolute;
+bottom: 1%;
+}
+.navico ion-icon[name="logo-wordpress"]{
+    z-index: 1000;
+}
+#menutoogled{
+    display: block;
+    position: fixed;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.281);
+    color: black;
+    padding: 2px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 15px 0px;
+    z-index: 100000;
+}
+    .jobfilter {
+        font-size: 0.1em;
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        margin-left: -50px;
+
+}
+.topcompaies table{
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+}
+#myjobinfo{
+    transform: scale(0.55);
+    -webkit-transform: scale(0.55);
+    -moz-transform: scale(0.55);
+    -ms-transform: scale(0.55);
+    -o-transform: scale(0.55);
+    width: 100%;
+}
+.postajob{
+   
+    margin-top: -220px;
+    margin-left: -160px;
+    font-size: 1.5em;
+}
+.categorytns{
+    background: #00000007;
+    display: flex;
+    overflow-x: auto;
+    padding: 3px;
+    margin-top: -13px;
+    margin-bottom: 10px;
+    width: 97vw;
+    position: sticky;
+    top: 2%;
+    z-index: 1000;
+}
+.info-input-form,
+.info-input-formnext,
+.info-input-formlast{
+    max-width: 90vw;
+}
+.userinandout {
+    max-width: 80vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+.info-input-formlast input[type='date']{
+    width: 92px;
+    margin-left:-7px;
+    padding: auto 0px;
+    font-size: 12px;
+}
+.dreamjob p,
+.dreamjob a{
+    font-size: 10px;
+}
+}
+
+/* Large devices (desktops)>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+@media (min-width: 99px) and (max-width: 1199px) {}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 1200px) {}
+
+

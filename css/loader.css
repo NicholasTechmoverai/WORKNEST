@@ -1,0 +1,143 @@
+body{
+    background:linear-gradient(to right ,rgba(18, 95, 18, 0.867),rgba(13, 42, 95, 0.826));
+color: white;
+}
+.splash{
+    background-color: grey;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#workicon{
+    font-size: 10rem;
+    rotate: 0deg;
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    color: black;
+    z-index: 10000;
+
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-size: 16px;
+    
+}
+#pow{
+    font-size: 10px;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+}
+}
+
+#workicon ion-icon {
+    animation: rotate 1.5s linear ;
+    -webkit-animation: rotate 1.5s linear ;
+}
+.signup,
+.login {
+    width: 300px;
+    margin: 70px auto 0;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black, 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    background-color: gray;
+  
+}
+.signup p,
+.login p {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+.signup input[type="email"],
+.signup input[type='text'],
+.signup input[type="password"],
+.login input[type="email"],
+.login input[type='text'],
+.login input[type="password"] {
+    width: 95%;
+    padding: 10px 0px;
+    padding-left: 10px;
+    margin: 10px opx;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.544);
+    color: white;
+    height: 18px;
+}
+
+.password-container{
+    display: flex;
+    align-items: center;
+}
+.toggle-password{
+    width: fit-content;
+    height: 37px;
+    background-color: rgb(63, 61, 61);
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+.login label {
+    display: block;
+    margin: 10px 0 5px;
+}
+.signup input[type="checkbox"],
+.login input[type="checkbox"] {
+    margin-right: 5px;
+}
+.signup button,
+.login button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1px 0px;
+}
+.login button:hover {
+    background-color: #45a049;
+}
+#facebookbtn{
+    background-color: blue;
+    cursor: pointer;
+    margin-top: 5px;
+}
+#facebookbtn:hover{
+    background-color: rgb(15, 15, 121);
+}
+#googlebtn{
+    background-color: rgb(175, 124, 31);
+    cursor: pointer;
+    margin-top: 5px;
+    text-decoration: none;
+}
+#googlebtn:hover{
+    background-color: rgb(147, 109, 32);
+}

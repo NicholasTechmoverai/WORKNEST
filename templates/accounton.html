@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkNest</title>
+    <link rel="stylesheet" href="../static/css/accounton.css">
+    <link rel="stylesheet" href="../static/css/splash.css">
+    <link rel="stylesheet" href="../static/css/mediaquery.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+</head>
+<body>
+    
+    <div class="navico">
+      <ion-icon name="logo-wordpress" id="worknesticon"></ion-icon>
+      <h1>WorkNest <span id="workicon"><ion-icon name="logo-wordpress"></ion-icon></span></h1>
+      <div class="topbtns">
+      <input type="radio" id="tab1" name="tab"/>
+            <label for="tab1">Home</label>
+            <input type="radio" id="tab2" name="tab" />
+            <label for="tab2">Blog</label>
+            <input type="radio" id="tab3" name="tab"/>
+            <label for="tab3">Help</label>
+            <input type="radio" id="tab4" name="tab"/>
+            <label for="tab4">About Us</label>
+            <input type="radio" id="tab5" name="tab"/>
+            <label for="tab5">Services</label>
+            <input type="radio" id="tab6" name="tab"/>
+            <label for="tab6">FAQ</label>
+      
+    </div>
+    <div class="signinn">
+      <a href="#" id="navlogin">Login</a>
+      <a href="#" id="navsignup">Signup</a>
+    </div>
+      </div>
+     
+    </div>
+    {% if user %}
+    <div id="verifiedEmail" class="confirmauth">{{ user['verified_email']|safe }}</div>
+    <div id="userEmail" class="confirmauth">Email:{{ user['email']|safe }}</div>
+   {% endif %}
+    <div class="jobico">
+       <h2>FIND YOUR JOB HERE,</h2> 
+       <P>Welcome to <a href="#">WorkNest</a>  your ultimate destination for connecting top talent with incredible opportunities! At WorkNest, we specialize in matching skilled professionals with leading companies across various industries. Whether you're a seasoned expert or just starting your career, our platform offers a seamless and efficient job search experience. Join WorkNest today and take the next step in your professional journey with confidence and ease.
+         Find your dream job or the perfect candidate right here at WorkNest!</P>
+         <div class="social">
+          <ion-icon name="logo-apple" class="socialico"></ion-icon>
+          <ion-icon name="logo-facebook" class="socialico"></ion-icon>
+          <ion-icon name="logo-instagram" class="socialico"></ion-icon>
+          <ion-icon name="logo-tiktok" class="socialico"></ion-icon>
+        </div>
+        <img id="jobimage" src="../static/images/job1.png" alt="job image">
+    </div>
+  
+ 
+    <img id="weswing" src="../static/images/wewant you swing.png">
+  
+    <div class="jobfilter">
+      <label for="job-select"><ion-icon name="briefcase"></ion-icon></label>
+      <select id="job-select" name="jobs">
+          <option value="">Job Type</option>
+          <option value="developer">Developer</option>
+          <option value="designer">Designer</option>
+          <option value="manager">Manager</option>
+          <option value="analyst">Analyst</option>
+      </select>
+      
+      <label for="salary-select"><ion-icon name="logo-usd"></ion-icon></label>
+      <select id="salary-select">
+          <option value="">Salary Range</option>
+          <option value="100-250">$100-$250</option>
+          <option value="250-500">$250-$500</option>
+      </select>
+      
+      <label for="location-select"><ion-icon name="location-sharp"></ion-icon></label>
+      <select id="location-select">
+          <option value="">Location</option>
+          <option value="africa">Africa</option>
+          <option value="asia">Asia</option>
+          <option value="america">America</option>
+          <option value="europe">Europe</option>
+      </select>
+
+      <img id="searchimg" src="../static/images/searchjobs0back.png" alt="search image">
+  </div>
+
+  <div class="categories swiper-container">
+    <h1>POPULAR CATEGORIES</h1>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="cont">
+          <h2>Engineering</h2>
+          <p>An engineering role involves designing, developing, and maintaining various systems and structures.</p>
+        </div>
+        <img src="../static/images/clane.png" alt="Machine Operator">
+          <img src="../static/images/engineringimg.png" alt="Engineering">
+      </div>
+      <div class="swiper-slide">
+        <div class="cont">
+          <h2>Computing and IT</h2>
+          <p>Computing and IT professionals work with computer systems, software development, and information technology.</p>
+        </div>
+        <img src="../static/images/coumuser2.png" alt="Computing and IT">
+          <img src="../static/images/4K-Computer-Monitor.png" alt="Computing and IT">
+      </div>
+      <div class="swiper-slide">
+        <div class="cont">
+          <h2>Hospitality</h2>
+          <p>Hospitality roles involve providing services in hotels, restaurants, and other customer service-oriented businesses.</p>
+        </div>
+          <img src="../static/images/chefultra.png" alt="Hospitality">
+          <img src="../static/images/chef.png" alt="Hospitality">
+      </div>
+      <div class="swiper-slide">
+        <div class="cont">
+          <h2>Machine Operator</h2>
+          <p>Machine operators oversee and operate machinery in manufacturing and production environments.</p>
+        </div>
+        <img src="../static/images/clane2.png" alt="Machine Operator">
+        <img src="../static/images/Operator.png" alt="Machine Operator">
+      
+      </div>
+      <div class="swiper-slide">
+        <div class="cont">
+          <h2>Online</h2>
+          <p>Online jobs encompass a wide range of roles that can be performed remotely via the internet.</p>
+        </div>
+          <img src="../static/images/work-from-bed269c73fe708.png" alt="Online">
+          <img src="../static/images/maxresdefault.png" alt="Online">
+      </div>
+  </div>
+  
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+
+<div class="topcompaies">
+  <h2>TOP COMPANIES <img src="../static/images/searchjobs2.png"></h2>
+ 
+  <input type="search" id="searchcompanies">
+  <label for="searchcompanies">Search</label><br>
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Featured Companies</th>
+        <th>Industry</th>
+        <th>Open Positions</th>
+        <th>Employee Count</th>
+        <th>Aim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>Technology</td>
+        <td>500+</td>
+        <td>156,500</td>
+        <td>Innovating the future of technology</td>
+      </tr>
+      <tr>
+        <td>Amazon</td>
+        <td>E-commerce</td>
+        <td>1,000+</td>
+        <td>1,540,000</td>
+        <td>Building the world’s most customer-centric company</td>
+      </tr>
+      <tr>
+        <td>Microsoft</td>
+        <td>Technology</td>
+        <td>300+</td>
+        <td>221,000</td>
+        <td>Connecting the world through quality gadgets</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>Social Media</td>
+        <td>200+</td>
+        <td>86,482</td>
+        <td>Connecting the world through social media</td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>Technology</td>
+        <td>400+</td>
+        <td>164,000</td>
+        <td>Feel the world through social trustable and quality devices.</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="job-listings">
+    <h2>Latest Job Listings</h2>
+    <ul>
+      <li>
+        <h3>Software Engineer</h3>
+        <p>Google - Mountain View, CA</p>
+        <p><strong>Full-Time</strong></p>
+      </li>
+      <li>
+        <h3>Product Manager</h3>
+        <p>Amazon - Seattle, WA</p>
+        <p><strong>Full-Time</strong></p>
+      </li>
+      <li>
+        <h3>Data Scientist</h3>
+        <p>Facebook - Menlo Park, CA</p>
+        <p><strong>Full-Time</strong></p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="dreamjob">
+  <div class="footer">
+      <p>Contact us: WorkNest@gmail.com | +254-74154-0233</p>
+      <p>Follow us on:</p>
+      <div class="social-media">
+          <a href="https://facebook.com" target="_blank">Facebook</a> |
+          <a href="https://twitter.com" target="_blank">Twitter</a> |
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+      <p>"Your dream job is out there. Keep searching and never settle."</p>
+      <div class="pwer">
+        
+        <p>By NicholasGathogo</p>
+        <p>&copy 2024</p>
+        <div class="contact-info">
+          <a href="mailto:kariuki12nicholas@gmail.com">Email</a> |
+          <a href="tel:+0741540233">Call</a>
+      </div>
+      </div>
+     
+  </div>
+  <p id="inju">Powered by <a href="#">Injustice</a></p>
+</div>
+
+
+
+
+<div class="fromsplash">
+    <div class="splash">
+      <div id="workiconload"><ion-icon name="logo-wordpress"></ion-icon></div>
+      
+  </div>
+
+  <div class="login">
+      <form  action="/login/password" method="post" >
+        <div class="uptop">
+          <p>LOGIN</p>
+          <span class="close">+</span>
+        </div>
+         
+          <label for="useremail">Email:</label>
+          <input type="email" id="useremail" name="useremail" placeholder="example@gmail.com" required>
+          
+          <label for="userpassword">Password:</label>
+          <div class="password-container">
+              <input type="password" id="userpassword" name="userpassword" placeholder="password" required>
+              <span id="togglePassword" class="toggle-password"><ion-icon name="eye-outline"></ion-icon></span>
+          </div>
+          
+          <label for="rememberme">
+              <input type="checkbox" id="rememberme" name="rememberme"> Remember Me
+          </label>
+          
+          <button type="submit">Login</button>
+      </form>
+          <P>Forgot password?<a href="#">clickhere</a></P>
+          <button id="googlebtn"></a><ion-icon name="logo-google"></ion-icon> <a href="{{ url_for('login') }}">Login with Google</a></button>
+          <button id="facebookbtn"><ion-icon name="logo-facebook"></ion-icon> Login with Facebook</button>
+          <p>No account yet?<a href="#" id="tosignup">Create one</a></p>
+      
+  </div>
+
+  <div class="signup">
+      <form method="post" action="/signup/password">
+        <div class="uptop">
+          <p>SIGNUP</p>
+          <span class="close">+</span>
+        </div>
+          
+          <label for="useremail">Email:</label>
+          <input type="email" id="useremail" name="useremail" placeholder="example@gmail.com" required>
+          
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="e.g.John">
+
+          <label for="userpassword">Password:</label>
+          <div class="password-container">
+              <input type="password" id="userpassword" name="userpassword" placeholder="password" required>
+              <span id="togglePassword2" class="toggle-password"><ion-icon name="eye-outline"></ion-icon></span>
+          </div>
+          <label for="confpassword">Confirm Password:</label>
+          <div class="password-container">
+              <input type="password" id="confpassword" name="userconfirmpassword" placeholder="confirm password" required>
+              <span id="togglePassword3" class="toggle-password"><ion-icon name="eye-outline"></ion-icon></span>
+          </div>
+          
+          <label for="rememberme">
+              <input type="checkbox" id="rememberme" name="rememberme"> Remember Me
+          </label>
+          
+          <button type="submit">Signup</button>
+      </form>
+          
+          <button id="googlebtn"><ion-icon name="logo-google"></ion-icon> <a href="{{ url_for('login') }}">Login with Google</a></button>
+          <button id="facebookbtn"><ion-icon name="logo-facebook"></ion-icon> Login with Facebook</button>
+          <p>Have an account yet?<a href="#" id="tologin">Login</a></p>
+      
+  </div>
+</div>
+
+  
+ 
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/js/accounton.js"></script>
+</body>
+</html>

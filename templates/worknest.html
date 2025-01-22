@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkNest</title>
+    <link rel="stylesheet" href="../static/css/accounton.css">
+    <link rel="stylesheet" href="../static/css/splash.css">
+    <link rel="stylesheet" href="../static/css/isolate.css">
+    <link rel="stylesheet" href="../static/css/mediaquery.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body >
+  <button id="menutoogled"><ion-icon name="menu-sharp"></ion-icon></button>
+  <div id="blurme">
+    <div class="navico">
+        <ion-icon name="logo-wordpress" id="worknesticon"></ion-icon>
+        <h1>WorkNest <span id="workicon"><ion-icon name="logo-wordpress"></ion-icon></span></h1>
+        <div class="topbtns">
+              <input type="radio" id="tab1" name="tab"/>
+              <label for="tab1"><ion-icon name="home"></ion-icon>Home</label>
+              <input type="radio" id="tab2" name="tab" />
+              <label for="tab2"><ion-icon name="briefcase"></ion-icon>Jobs</label>
+              <input type="radio" id="tab3" name="tab"/>
+              <label for="tab3"><ion-icon name="bag-add"></ion-icon>Post</label>
+              <input type="radio" id="tab4" name="tab"/>
+              <label for="tab4"><ion-icon name="notifications"></ion-icon>Notification</label>
+              <input type="radio" id="tab5" name="tab"/>
+              <label for="tab5"><ion-icon name="chatbubble-ellipses"></ion-icon>Messages</label>
+              <input type="radio" id="tab6" name="tab"/>
+              <label for="tab6"><ion-icon name="settings"></ion-icon>Settings</label>
+        
+      </div>
+      <div class="profile">
+        <img class="googleprofilepic" src="../static/images/nouser.png" alt="prifile" id="profileimage">
+      </div>
+    </div>
+     
+    <div class="addpostandsearch">
+      <input type="search" name="query" placeholder="Search..." id="search">
+      <div id="wholesearch-staffs">
+        <button type="submit" id="backlivesearch"><ion-icon name="search-circle"></ion-icon></button>
+        <button id="mynewpost" type="button"><ion-icon name="add-circle"></ion-icon></button>
+      </div>
+    </div>
+
+    <div class="mynewoistinput">
+      <div id="closethepost" class="close-icon">&times;</div>
+     <span><ion-icon name="logo-wordpress"></ion-icon> Hello {{user['name']}} Create a Post,</span>
+      <br>What's on your Mind??
+      <textarea id="post-content"></textarea>
+     Add Image,
+      <label for="fileUpload"><ion-icon name="images-outline"></ion-icon></label>
+      <input type="file" id="fileUpload" multiple accept="image/*,video/*">
+      <div class="slider" id="slider">
+        <div class="slides files" id="slidesContainer">
+            <!-- Images will be inserted here -->
+        </div>
+        <div class="nxt_prev_btns">
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        
+        <div class="bullets" id="bulletsContainer">
+            <!-- Bullets will be inserted here -->
+        </div>
+    </div>
+    <button type="submit" id="submitmypost" >Post <ion-icon name="checkmark-done-outline"></ion-icon></button>
+    </div>
+
+
+
+      
+    <div class="jobfilter">
+      <label for="job-select"><ion-icon name="briefcase"></ion-icon></label>
+      <select id="job-select" name="jobs">
+          <option value="">Job Type</option>
+          <option value="developer">Developer</option>
+          <option value="designer">Designer</option>
+          <option value="manager">Manager</option>
+          <option value="analyst">Analyst</option>
+      </select>
+      
+      <label for="salary-select"><ion-icon name="logo-usd"></ion-icon></label>
+      <select id="salary-select">
+          <option value="">Salary Range</option>
+          <option value="100-250">$100-$250</option>
+          <option value="250-500">$250-$500</option>
+      </select>
+      
+      <label for="location-select"><ion-icon name="location-sharp"></ion-icon></label>
+      <select id="location-select">
+          <option value="">Location</option>
+          <option value="africa">Africa</option>
+          <option value="asia">Asia</option>
+          <option value="america">America</option>
+          <option value="europe">Europe</option>
+      </select>
+
+      <img id="searchimg" src="../static/images/searchjobs0back.png" alt="search image">
+  </div>
+
+  <div id="message"></div>
+  <!--JOB INPUT FORM-->
+<form id="myjobinfo">
+  <div class="postajob">
+    <h2>Post a Job</h2>
+    <div class="jobphold">
+      <h3>About Category</h3>
+      <div class="jobtrack">
+        <div class="updown">
+          <label for="jobcompany">Name of Company<span class="required">*</span></label>
+          <input type="text" id="jobcompany" name="jobcompany" placeholder="e.g. WorkNest">
+        </div>
+        
+        <div class="updown">
+          <label for="joblink">Company Link</label>
+          <input type="text" id="joblink" name="joblink" placeholder="www.example.com">
+        </div>
+
+        <div class="updown">
+          <div id="logohold"><img src="" alt="Logo Preview" id="imagePreviewImg"></div>
+          <p>Logo<span class="required">*</span></p>
+          <div class="logonameholder">
+            <div id="logoname">e.g.logo.png</div><span> <label for="joblogo">Upload<ion-icon name="arrow-up-outline"></ion-icon></label></span>
+            <input type="file" id="joblogo" name="joblogo">
+          </div>
+         
+        </div>
+      </div>
+
+      <div class="jobprofdesc">
+        <div class="jobprofile">
+          <div class="updown">
+            <label for="jobtype">Job position<span class="required">*</span></label>
+            <input type="text" id="jobprofile" name="jobprofile" placeholder="e.g. manager , e.g. secretary">
+          </div>
+          <div class="updown">
+            <label for="jobcat">Job Category<span class="required">*</span></label>
+            <input type="text" id="jobcat" name="jobcat" placeholder="Engineering , programmer , lawyer , Graphics designer">
+          </div>
+        </div>
+  
+        <div class="jobdesc">
+          <div class="updown">
+            <label for="jobdescription">Job Description<span class="required">*</span></label>
+            <textarea id="jobdescription" name="jobdescription"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="jobrequirements">
+        <p>Job Requirements<span class="required">*</span></p>
+        <div class="editor-container">
+          <p id="editt"  title="Edit and style your job requirements here.">Edit:</p>
+            <div class="toolbar">
+              <button type="button" onclick="execCommand('undo', this)"><ion-icon name="arrow-undo-outline"></ion-icon>Undo</button>
+              <button type="button" onclick="execCommand('redo', this)"><ion-icon name="arrow-redo-outline"></ion-icon>Redo</button>
+                <button type="button" onclick="execCommand('bold', this)"><b>B</b></button>
+                <button type="button" onclick="execCommand('italic', this)"><i>I</i></button>
+                <button type="button" onclick="execCommand('underline', this)"><u>U</u></button>
+                <button type="button" onclick="execCommand('insertUnorderedList', this)">• List</button>
+                <button type="button" onclick="execCommand('insertOrderedList', this)">1. List</button>
+                <button type="button" onclick="execCommand('justifyLeft', this)">Left Align</button>
+                <button type="button" onclick="execCommand('justifyCenter', this)">Center Align</button>
+                <button type="button" onclick="execCommand('justifyRight', this)">Right Align</button>
+                <button type="button" onclick="execCommand('strikeThrough', this)">Strikethrough</button>
+                <button type="button" onclick="execCommand('justifyFull', this)">Justify</button>
+                <button type="button" onclick="execCommand('indent', this)">Indent</button>
+                <button type="button" onclick="execCommand('outdent', this)">Outdent</button>
+                <button type="button" onclick="execCommand('createLink', this)">Insert Link</button>
+                <button type="button" onclick="execCommand('insertImage', this)">Insert Image</button>
+                <button type="button" onclick="execCommand('foreColor', this)">Text Color</button>
+                <button type="button" onclick="execCommand('backColor', this)">Highlight</button>
+                <button type="button" onclick="execCommand('subscript', this)">Subscript</button>
+                <button type="button" onclick="execCommand('superscript', this)">Superscript</button>                  
+                <button type="button" onclick="execCommand('removeFormat', this)">Clear Formatting</button>
+                <input type="file" id="fileInput" onchange="handleFileUpload(event)">
+              
+            </div>
+           
+            <div id="requirementsinput" contenteditable="true" class="editable-div" onfocus="hidePlaceholder()" onblur="showPlaceholder()"></div>
+            <div id="placeholder">Enter job requirements here...</div>
+            <div id="requirementattachbtn" onclick="document.getElementById('fileInput').click()"><ion-icon name="attach-outline"></ion-icon></div>
+          
+            <div id="fileList"></div>
+        </div>
+    </div>
+
+    <div class="jobtypeLevel">
+      <div class="jobtypeP">
+          <h3>Job Type<span class="required">*</span></h3>
+          <div class="ingrid">
+              <div class="oneone"> 
+                  <input type="checkbox" id="jobtype_fulltime" name="jobtype" value="fulltime"> 
+                  <label for="jobtype_fulltime">Fulltime</label>
+              </div>
+              <div class="oneone"> 
+                  <input type="checkbox" id="jobtype_parttime" name="jobtype" value="parttime">
+                  <label for="jobtype_parttime">Parttime</label>
+              </div>
+              <div class="oneone"> 
+                  <input type="checkbox" id="jobtype_online" name="jobtype" value="online">
+                  <label for="jobtype_online">Online</label>
+              </div>
+              <div class="oneone"> 
+                  <input type="checkbox" id="jobtype_contract" name="jobtype" value="contract">
+                  <label for="jobtype_contract">Contract</label>
+              </div>
+          </div>
+      </div>
+  
+      <div class="experience">
+          <h3>Experience Level<span class="required">*</span></h3>
+          <div class="ingrid">
+              <div class="oneone">               
+                  <input type="checkbox" id="experience_entry" name="experience" value="entry">
+                  <label for="experience_entry">Entry-level</label>
+              </div>
+  
+              <div class="oneone">             
+                  <input type="checkbox" id="experience_mid" name="experience" value="mid"> 
+                  <label for="experience_mid">Moderate_level</label>
+              </div>
+  
+              <div class="oneone">
+                  <input type="checkbox" id="experience_senior" name="experience" value="senior">
+                  <label for="experience_senior">Senior</label>
+              </div>
+  
+              <div class="oneone">
+                  <input type="checkbox" id="experience_expert" name="experience" value="expert">
+                  <label for="experience_expert">Expert</label>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+        <div class="locationrange">
+          <div class="location">
+            <h3>Location<span class="required">*</span></h3>
+            <div class="straight">
+              <div class="updown">
+                  <label for="countyinlocation">Country<span class="required">*</span></label>
+                  <input type="text" id="countyInput" placeholder="Select or type county" onkeyup="filterFunction()">
+                  <div id="countyinlocation" name="county" class="dropdown-content">
+                    <div>kenya</div>
+                    <div>uganda</div>
+                    <div>burundi</div>
+                    <div>Spanish</div>
+                  </div>
+              </div>
+              <div class="updown">
+                  <label for="cityinlocation">City<span class="required">*</span></label>
+                  <select id="cityinlocation" name="city">
+                      <option value="">Select City</option>
+                      <!-- Options will be dynamically added here -->
+                  </select>
+                  
+              </div>
+          </div>
+          
+          </div>
+    
+          <div class="salaryrange">
+            <h3>Salary Range<span class="required">*</span></h3>
+            <div class="straight">
+              <div class="updown">
+                <label for="minsalary">Min<span class="required">*</span></label>
+                <input type="number" id="minsalary" name="minsalary">
+              </div>
+              <div class="updown">
+                <label for="maxsalary">Max<span class="required">*</span></label>
+                <input type="number" id="maxsalary" name="maxsalary">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="updown">
+          <label for="jobexpiry" title="job submission  expiry date">Job By:<span class="required">*</span></label>
+          <input type="date" name="jobexpiry" id="jobexpiry">
+        </div>
+       
+      </div>
+       <button  id="confirmpost"  type="submit">Post Job <ion-icon name="arrow-forward-outline"></ion-icon></button>
+      </div>
+</form> 
+
+
+<div class="alljobs">
+  <h2>Category</h2>
+  <div class="categorytns">
+    <input type="radio" id="taball" name="tabcategery"/>
+    <label for="taball">All</label>
+    <input type="radio" id="tabpopular" name="tabcategery" />
+    <label for="tabpopular">Popular</label>
+    <input type="radio" id="tabtrending" name="tabcategery"/>
+    <label for="tabtrending">Trending</label>
+    <input type="radio" id="tabparttime" name="tabcategery"/>
+    <label for="tabparttime">PartTime</label>
+    <input type="radio" id="tabfulltime" name="tabcategery"/>
+    <label for="tabfulltime">Fulltime</label>
+    <input type="radio" id="tabonline" name="tabcategery"/>
+    <label for="tabonline">online</label>
+
+</div>
+
+<div id="jobsContainer">
+ <!--JOBS  DISOPLAY-->
+
+</div>
+</div>
+
+<!--NOTIFICATIONS-->
+<div class="nofication-container">
+  <div class="all_notification">
+    <img src="../static/images/worknestprofilepicture.jpg">
+    <div class="notification_content"><p>Welcome to Worknest posts</p>
+      <p>just now</p>
+    </div>
+  </div>
+</div>
+
+<div class="userinandout">
+  {{ msg }}
+  {% if user %}
+  <button type="button" id="closeprofile"><ion-icon name="close-circle-sharp"></ion-icon></button>
+    <div class="userdetailhold">
+    
+      <div class="ellipsisdescription">
+        <button type="button" id="letmeeditprofile"><ion-icon name="create-sharp"></ion-icon> Edit</button>
+        <button type="button"> <ion-icon name="lock-closed"></ion-icon> Lock profile </button>
+      </div>
+
+      <p><span><button id="editprofileelipsis"><ion-icon name="ellipsis-vertical-sharp"></ion-icon></button></span><ion-icon name="logo-wordpress" id="worknesticon"></ion-icon> <span id="usermyemail">{{ user['email'] }}</span></p>
+      <img class="googleprofilepic" src="{{ user['picture'] }}" alt="Profile Picture"><br>
+      <h4><span id="username">{{ user['name'] }}</span>  <span id="state">offline</span></h4>
+      <p hidden id="myprroom">{{user['id']}}</p>
+      
+    </div>
+    <div class="myhistory">
+      <h3>Contact</h3>
+      <div id="contactInfo">
+        <div id="phonehist"><ion-icon name="logo-whatsapp"></ion-icon> +254741540233</div>
+        <div id="emailhist"><ion-icon name="mail-outline"></ion-icon> kariuiki12nicholas@gmail.com</div>
+        <div id="linkedinlink"><ion-icon name="logo-linkedin"></ion-icon> linkedin.com/in/kariuki12nicholas</div>
+      </div>
+      
+      <h3>Technical Skills</h3>
+      <div class="skills">
+        <ion-icon name="logo-python"></ion-icon>
+        <ion-icon name="logo-bitcoin"></ion-icon>
+        <ion-icon name="logo-javascript"></ion-icon>
+        <ion-icon name="logo-playstation"></ion-icon>
+        <ion-icon name="logo-windows"></ion-icon>
+        <ion-icon name="logo-docker"></ion-icon>
+        <i class="fa-brands fa-linux"></i>
+        <ion-icon name="logo-electron"></ion-icon>
+        <ion-icon name="logo-ionitron"></ion-icon>
+        <ion-icon name="logo-ionic"></ion-icon>
+        <ion-icon name="logo-html5"></ion-icon>
+      </div>
+    
+      <h3>Interests</h3>
+      <div class="myinterests">
+        <p>Traveling</p>
+        <p>Reading</p>
+        <p>Design Thinking</p>
+        <p>Poetry</p>
+        <p>Drawing</p>
+        <p>Programming</p>
+        <p>Researching</p>
+        <p>Journaling</p>
+      </div>
+    
+      <h3>Education</h3>
+      <div class="educationhist">
+        <div class="fromto">2019 - 2023</div>
+        <div class="moreininstitution">
+          <div class="institution">Lanet Secondary school like no other</div>
+          <div class="institutiondescription">
+            Excelled in Mathematics A plain, English C+, Physics A plain, Chemistry A plain, Geography A plain, History B plain, Biology B+
+          </div>
+          
+          
+        </div>
+        </div>
+      
+      <div class="educationhist">
+        <div class="fromto">2023 - 2027</div>
+        <div class="moreininstitution">
+          <div class="institution">Murang'a University Of Technology</div>
+          <div class="institutiondescription">1st Class graduate with Bachelor's of Science in Computer Technology</div>
+        </div>
+        </div>
+
+        <div class="educationhist">
+          <div class="fromto">2027 - 2030</div>
+          <div class="moreininstitution">
+            <div class="institution">Murang'a University Of Technology</div>
+            <div class="institutiondescription">1st Class graduate with Master's in Computer Technology</div>
+          </div>
+          </div>
+        
+      
+
+      <h3>Experience</h3>
+      <div class="experiencehist">
+        <div class="fromto">2024 - 2025</div>
+        <div class="moreinexperience">
+          <div class="role">Software Developer Intern</div>
+          <div class="company">Tech Solutions Ltd.</div>
+          <div class="description">Assisted in developing web applications using Python and JavaScript, improving efficiency by 20%.</div>
+        </div>
+
+      </div>
+      <div class="experiencehist">
+        <div class="fromto">2025 - 2027</div>
+        <div class="moreinexperience">
+          <div class="role">Junior Software Engineer</div>
+          <div class="company">Innovatech Corp.</div>
+          <div class="description">Worked on a team to build scalable microservices using Docker and Kubernetes.</div>
+        </div>
+      </div>
+
+      <h3>Projects</h3>
+      <div class="projectshist">
+        <div class="projectname">Personal Portfolio Website</div>
+        <div class="description">Developed a responsive personal website using HTML, CSS, and JavaScript to showcase my skills and projects.</div>
+        <div class="projecturl"><a href="#">www.hireme.worknest</a> </div>
+      </div>
+
+      <div class="projectshist">
+        <div class="projectname">E-commerce Platform</div>
+        <div class="description">Collaborated on creating a scalable e-commerce platform using Python and Flask, implementing secure payment processing.</div>
+        <div class="projecturl"><a href="#">www.hireme.worknest</a> </div>
+      </div>
+
+      <h3>Certifications</h3>
+      <ul class="certificationhist">
+        <li>
+          <div class="certificationname">AWS Certified Solutions Architect</div>
+          <div class="date">Issued: June 2023</div>
+        </li>
+        <li>
+          <div class="certificationname">Certified Kubernetes Administrator (CKA)</div>
+          <div class="date">Issued: March 2024</div>
+        </li>
+      </ul>
+      
+
+      <h3>Languages</h3>
+      <div class="languageshist">
+        <p>English - Fluent</p>
+        <p>Swahili - Native</p>
+      </div>
+
+    </div>
+    
+
+    <a id="logmeout" href="{{ url_for('logout') }}">Logout</a>
+  {% endif %}
+</div>
+
+<div class="allpostedposts"></div>
+ 
+<!--chat section-->
+<button id="chatbtnhider" onclick="hideChat()"><ion-icon name="chevron-up"></ion-icon></button>
+<div id="username-form">
+  <input hidden type="text" id="username-input" value="{{ user['name'] }}">
+  <button onclick="joinChat()">Join Chat</button>
+</div>
+<div id="chat-container" style="display: none;">
+  <div id="chatheader">
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+    <div class="inboxed-user-info"><div class="notyfications"><div class="skull-loader"></div></div><div class="inboxed_user"><div class="skull-loader"></div></div><p class="inboxed-user-name"><div class="skull-loader"></div> </p></div>
+  </div>
+  <span>USER:<div id='sender'></div></span>
+  <div id="messages"></div>
+  <form id="message-form">
+      <input type="text" id="recipient-input" placeholder="Recipient (leave blank for group)" hidden>
+      <div class="inputhold">
+          <input type="file" id="file-input" hidden>
+         <label for="file-input"><ion-icon name="attach-outline"></ion-icon></label>
+         <button  type="button" id="open-emoji"><ion-icon name="happy-outline"></ion-icon></button>
+        <div id="message-input" contenteditable="true" placeholder="Type your message..."></div>
+          <button type="submit" id="send-chat"><ion-icon name="send-sharp"></ion-icon></button> 
+          <select id="room-select" hidden>
+              <option value="injustice2">injustice2</option>
+              <option value="tech">Tech</option>
+              <option value="help">Help</option>
+          </select>
+          
+      </div>
+      <!-- Changed to type="submit" -->
+  </form>
+</div>
+
+
+<div class="dreamjob">
+  <div class="footer">
+      <p>Contact us: WorkNest@gmail.com | +254-74154-0233</p>
+      <p>Follow us on:</p>
+      <div class="social-media">
+          <a href="https://facebook.com" target="_blank">Facebook</a> |
+          <a href="https://twitter.com" target="_blank">Twitter</a> |
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+      <p>"Your dream job is out there. Keep searching and never settle."</p>
+      <div class="pwer">
+        
+        <p>By NicholasGathogo</p>
+        <p>&copy 2024</p>
+        <div class="contact-info">
+          <a href="mailto:kariuki12nicholas@gmail.com">Email</a> |
+          <a href="tel:+254741540233">Call</a>
+      </div>
+      </div>
+     
+  </div>
+  <p id="inju">Powered by <a href="#">Injustice</a></p>
+</div>
+</div>
+
+
+
+<!--forms for updating personal details-->
+<div class="info-input-form">
+  <div class="description"> 
+    <p id="pernalrem">Kindly, update your details to proceed, </p>
+    <p style="color: gray;">1/3 <span><button class="infoclose" type="button"><ion-icon name="close-circle-outline"></ion-icon></button></span></p>
+  </div>
+
+  <ion-icon name="logo-wordpress" id="worknesticon"></ion-icon>
+  <label for="myuserprofile">
+    <img class="googleprofilepic" id="googleprofilepic" src="{{ user['picture'] }}" alt="Profile Picture">
+      <br>
+  </label>
+  <input type="file" id="myuserprofile" accept="image/*">
+ 
+<div class="ingrids">
+ 
+  <div class="updown">
+    <label for="myuseremail">Email:</label>
+    <input type="email" id="myuseremail" value="{{ user['email'] }}" placeholder="JohnDoe@gmail.com" required readonly>
+  </div>
+
+  <div class="updown">
+  <label for="myusername">Username:</label>
+  <input type="text" id="myusername" value="{{ user['name'] }}" placeholder="e.g.John Doe" required readonly>
+  </div>
+
+  <div class="updown">
+    <label for="userphone">Phone:</label>
+    <div class="inline">
+      <input type="tel" id="countrycode" placeholder="+1"  value="+254" required>
+      <input type="tel" id="userphone" placeholder="e.g.0741540233" required>
+    </div>
+  </div>
+  
+  <div class="updown">
+    <label for="userdob">Date of Birth:</label>
+    <input type="date" id="userdob" required>
+  </div>
+  
+
+
+<div>
+  <p id="ongenders">Gender:</p>
+  <div class="user-gender">
+    <div class="inline">
+      <label for="male">Male</label>
+      <input type="radio" id="male" name="gender" value="male" required>
+    </div>
+
+    <div class="inline">
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender" value="female">
+    </div>  
+
+    <div class="inline">
+    <label for="other">Other</label>
+    <input type="radio" id="other" name="gender" value="other">
+    </div>  
+  </div>
+
+</div>
+<div>
+  <p> language:</p>
+  <div class="dropdown">
+  
+    <input type="text" id="languageInput" placeholder="Select or type a language" onkeyup="filterFunction()">
+    <div id="languageList" class="dropdown-content">
+      <div>English</div>
+      <div>French</div>
+      <div>Swahili</div>
+      <div>Spanish</div>
+      <div>German</div>
+      <div>Chinese</div>
+      <div>Japanese</div>
+      <div>Russian</div>
+      <div>Arabic</div>
+      <div>Hindi</div>
+    </div>
+    <div id="languagehold">
+
+    </div>
+  </div>
+</div>
+</div>
+
+  <div class="next-button-hold">
+    <button type="button" id="istnext">
+      Next <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+    </button>
+  </div>
+</div>
+
+
+<div class="fromsplash">
+    <div class="splash">
+      <div id="workiconload"><ion-icon name="logo-wordpress"></ion-icon></div>
+      
+  </div>
+</div>
+
+
+
+<div class="info-input-formnext">
+  <div class="description"> 
+    <p id="backgrem">Kindly, Finish updating your details to proceed, </p>
+    <p style="color: gray;">2/3 <span><button class="infoclose" type="button"><ion-icon name="close-circle-outline"></ion-icon></button></span></p>
+  </div>
+  
+  <div class="ingrids">
+  <div class="updown">
+    <label for="country">Country:</label>
+    <input type="text" id="contryinput">
+    <div id="countryin" name="county" class="dropdown-content">
+      <div>kenya</div>
+      <div>uganda</div>
+      <div>burundi</div>
+      <div>Spanish</div>
+    </div>*
+  </div>
+
+  <div class="updown">
+    <label for="city">City:</label>
+    <input type="text" id="mycity" placeholder="e.g.Nairobi">  
+  </div>
+
+    <div>
+      <p>Intrests:</p>
+      <div class="dropdown">
+        <input type="text" id="IntrestInput" placeholder="Select or type intrests" onkeyup="filterFunction()">
+        <div id="intrestList" class="dropdown-content">
+            <div>Traveling</div>
+            <div>Reading</div>
+            <div>Design Thinking</div>
+            <div>Poetry</div>
+            <div>Drawing</div>
+            <div>Programming</div>
+            <div>Researching</div>
+            <div>Journaling</div>
+            <div>Cooking</div>
+            <div>Hiking</div>
+            <div>Photography</div>
+            <div>Gardening</div>
+            <div>Writing</div>
+            <div>Painting</div>
+            <div>Yoga</div>
+            <div>Meditation</div>
+            <div>Music</div>
+            <div>Singing</div>
+            <div>Dancing</div>
+            <div>Chess</div>
+            <div>Puzzles</div>
+            <div>Cycling</div>
+            <div>Swimming</div>
+            <div>Running</div>
+            <div>Gaming</div>
+            <div>Bird Watching</div>
+            <div>Astronomy</div>
+            <div>Volunteering</div>
+            <div>DIY Projects</div>
+            <div>Knitting</div>
+            <div>Sewing</div>
+            <div>Fashion</div>
+            <div>Fitness</div>
+            <div>Martial Arts</div>
+            <div>Blogging</div>
+            <div>Podcasting</div>
+            <div>Film Making</div>
+            <div>Acting</div>
+            <div>Scrapbooking</div>
+            <div>Collecting</div>
+            <div>Tech Gadgets</div>
+            <div>Coding</div>
+            <div>Language Learning</div>
+            <div>Investing</div>
+            <div>Philosophy</div>
+            <div>History</div>
+            <div>Social Media</div>
+            <div>Tea Tasting</div>
+            <div>Wine Tasting</div>
+            <div>Magic Tricks</div>
+            <div>Origami</div>
+            <div>Surfing</div>
+            <div>Rock Climbing</div>
+            <div>Camping</div>
+            <div>Scuba Diving</div>
+            <div>Animal Rescue</div>
+            <div>Creative Writing</div>
+            <div>Public Speaking</div>
+            <div>Stand-Up Comedy</div>
+            <div>Personal Finance</div>
+            <div>Online Courses</div>
+            <div>Model Building</div>
+            <div>Cooking International Cuisine</div> 
+          </div>
+      </div>
+      <p id="descri">selected Intrests</p>
+        <div id="intrestshold">
+      
+        </div>
+    </div>
+  
+  <div>
+    <p>Skills:</p>
+    <div class="dropdown">
+      <input type="text" id="skillsInput" placeholder="Select skill icon" onkeyup="filterFunction()">
+      <div id="skillsList" class="dropdown-content">
+        <div><span>Python</span> <ion-icon name="logo-python"></ion-icon></div>
+        <div><span>Bitcoin</span> <ion-icon name="logo-bitcoin"></ion-icon></div>
+        <div><span>JavaScript</span> <ion-icon name="logo-javascript"></ion-icon></div>
+        <div><span>PlayStation</span> <ion-icon name="logo-playstation"></ion-icon></div>
+        <div><span>Windows</span> <ion-icon name="logo-windows"></ion-icon></div>
+        <div><span>Docker</span> <ion-icon name="logo-docker"></ion-icon></div>
+        <div><span>Linux</span> <i class="fa-brands fa-linux"></i></div>
+        <div><span>Electron</span> <ion-icon name="logo-electron"></ion-icon></div>
+        <div><span>Ionitron</span> <ion-icon name="logo-ionitron"></ion-icon></div>
+        <div><span>Ionic</span> <ion-icon name="logo-ionic"></ion-icon></div>
+        <div><span>HTML5</span> <ion-icon name="logo-html5"></ion-icon></div>
+      </div>
+      <p id="descri">selected skills</p>
+      <div id="skillshold">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+
+
+    <div class="socialmedialink">
+      <p id="descri">Almost there,<br>Add URLs of your social media platforms in your Bio,</p><br>
+      <div class="inline">
+        <label for="linkedin">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </label>
+        <input type="text" id="linkedin" placeholder="Enter LinkedIn URL">
+      </div>
+      
+      <div class="inline">
+        <label for="facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+         
+        </label>
+        <input type="text" id="facebook" placeholder="Enter Facebook URL">
+      </div>
+      
+      <div class="inline">
+        <label for="whatsapp">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        
+        </label>
+        <input type="text" id="whatsapp" placeholder="Enter WhatsApp URL">
+      </div>
+      
+      <div class="inline">
+        <label for="tiktok">
+          <ion-icon name="logo-tiktok"></ion-icon>
+         
+        </label>
+        <input type="text" id="tiktok" placeholder="Enter TikTok URL">
+      </div>
+      
+ 
+    </div>
+    <div class="next-button-hold">
+      <button type="button" id="ndback">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon> Back
+      </button>
+      <button type="button" id="ndnext">
+        Next <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+
+
+
+<!--last form input-->
+  <div class="info-input-formlast">
+    <div class="description"> 
+      <p id="pernalrem">Finishing up, update your education details, </p>
+      <p style="color: gray;">3/3 <span><button class="infoclose" type="button"><ion-icon name="close-circle-outline"></ion-icon></button></span></p>
+    </div>
+
+    <div class="inscroll">
+      <div class="institutionadder">
+        <button type="button" id="addinstitution"><ion-icon name="duplicate-outline"></ion-icon></button>
+        <div class="instclone">
+          <div class="moreingrids">   
+            <div class="updown">
+              <div class="updown">
+                <p>Institution:</p>
+                <input type="text" class="UniversityInput" placeholder="Type institution">
+              </div>
+            </div>
+            <div class="updown">
+              <label for="frominstitution">From:</label>
+              <input type="date" class="frominstitutionStart">
+            </div>
+            <div class="updown">
+              <label for="toinstitution">To:</label>
+              <input type="date" class="frominstitutionEnd">
+            </div>
+           
+          </div>
+          <div class="updown" id="magrintt">
+            <p>Add achievements from institution</p>
+            <textarea class="autoExpand institutionachieve" placeholder="e.g. A+ in mathematics&#10;e.g. A degree in psychology"></textarea>
+          </div>
+        </div>
+        
+        </div>
+        
+     
+  
+      <div class="experienceadder">
+        <button type="button" id="addexperience"><ion-icon name="duplicate-outline"></ion-icon></button>
+        <div class="experienceloop">
+          <div class="moreingrids">  
+            <div class="updown">
+              <p>Organization:</p>
+              <input type="text" class="organizationInput" placeholder="Type organization">
+            </div>
+            <div class="updown">
+              <label for="fromDate">From:</label>
+              <input type="date" class="fromDate">
+            </div>
+            <div class="updown">
+              <label for="toDate">To:</label>
+              <input type="date" class="toDate">
+            </div>
+          </div>
+          <div class="updown" id="magrintt">
+            <p>Describe Your Position</p>
+            <textarea class="autoExpand positiondescript" placeholder="e.g. Managed a team of 5&#10;e.g. Developed marketing strategies"></textarea>
+          </div>
+        </div>
+      </div>
+      
+  
+      <div class="personalprojectsholder">
+        <button type="button" id="addproject"><ion-icon name="duplicate-outline"></ion-icon></button>
+        <div class="cloneproject">
+          <div class="updown">
+            <label for="projectName">Project Name:</label>
+            <input type="text" class="projectName" placeholder="Enter project name">
+          </div>
+          <div class="updown" id="magrintt">
+            <p>Describe Your Project:</p>
+            <textarea class="autoExpand projectdscript" placeholder="Brief description of the project"></textarea>
+          </div>
+        </div>     
+      </div>
+    </div>
+
+    
+    
+
+    <div class="next-button-hold">
+      <button type="button" id="ndfinishback">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon> Back
+      </button>
+      <button type="button" id="ndnfinish">
+        Finish<ion-icon name="arrow-up-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+  
+ 
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/js/accounton.js"></script>
+  <script src="../static/js/worknest.js"></script>
+  <script src="../static/js/mysocket.js"></script>
+</body>
+<!--rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-->
+
+
+</html>

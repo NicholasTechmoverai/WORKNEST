@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkNest</title>
+    <link rel="stylesheet" href="../static/css/loader.css">
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+
+</head>
+<body>
+    <div class="splash">
+        <div id="workicon"><ion-icon name="logo-wordpress"></ion-icon></div>
+        <div class="footer">
+            <p>From</p>
+            <p> &copy WorkNest 2024</p>
+            <p id="pow">powered by <a href="#">Injustice</a> </p>
+        </div>
+    </div>
+
+    <div class="login">
+        <form method="post" action="/login">
+            <p>LOGIN</p>
+            <label for="useremail">Email:</label>
+            <input type="email" id="useremail" name="useremail" placeholder="example@gmail.com" required>
+            
+            <label for="userpassword">Password:</label>
+            <div class="password-container">
+                <input type="password" id="userpassword" name="userpassword" placeholder="password" required>
+                <span id="togglePassword" class="toggle-password"><ion-icon name="eye-outline"></ion-icon></span>
+            </div>
+            
+            <label for="rememberme">
+                <input type="checkbox" id="rememberme" name="rememberme"> Remember Me
+            </label>
+            
+            <button type="submit">Login</button>
+        </form>
+            <P>Forgot password?<a href="#">clickhere</a></P>
+            <button id="googlebtn"><ion-icon name="logo-google"></ion-icon> login with Google</button>
+            <button id="facebookbtn"><ion-icon name="logo-facebook"></ion-icon> Login with Facebook</button>
+            <p>No account yet?<a href="#" id="tosignup">Create one</a></p>
+        
+    </div>
+
+    <div class="signup">
+        <form method="post" action="/signup">
+            <p>SIGNUP</p>
+            <label for="useremail">Email:</label>
+            <input type="email" id="useremail" name="useremail" placeholder="example@gmail.com" required>
+            
+            <label for="userpassword">Password:</label>
+            <div class="password-container">
+                <input type="password" id="userpassword" name="userpassword" placeholder="password" required>
+                <span id="togglePassword" class="toggle-password"><ion-icon name="eye-outline"></ion-icon></span>
+            </div>
+            <label for="confpassword">Confirm Password:</label>
+            <div class="password-container">
+                <input type="password" id="confpassword" name="userpassword" placeholder="confirm password" required>
+                <span id="togglePassword" class="toggle-password"><ion-icon name="eye-outline"></ion-icon></span>
+            </div>
+            
+            <label for="rememberme">
+                <input type="checkbox" id="rememberme" name="rememberme"> Remember Me
+            </label>
+            
+            <button type="submit">Signup</button>
+        </form>
+            
+            <button id="googlebtn"><ion-icon name="logo-google"></ion-icon> login with Google</button>
+            <button id="facebookbtn"><ion-icon name="logo-facebook"></ion-icon> Login with Facebook</button>
+            <p>Have an account yet?<a href="#" id="tologin">Login</a></p>
+        
+    </div>
+
+    <form action="/WorkNest" method="post">
+        <button hidden id="WorkNest"></button>
+    </form>
+    <script src="../static/js/loader.js"></script>
+</body>
+</html>
